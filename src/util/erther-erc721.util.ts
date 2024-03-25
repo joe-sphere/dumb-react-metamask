@@ -1,7 +1,6 @@
 import { ethers } from 'ethers';
 import erc721Abi from './abi/erc721-abi.json';
-import to from './await-to';
-import { ReleaseYourUltra } from './types/ReleaseYourUltra';
+import to from 'await-to-js';
 
 export class EtherErc721Util {
 	private contractAddress: string;
@@ -16,7 +15,7 @@ export class EtherErc721Util {
 			this.contractAddress,
 			this.abi,
 			signer
-		) as unknown as ReleaseYourUltra;
+		);
 
 		let [err, result] = await to(contract.mintPrice());
 
